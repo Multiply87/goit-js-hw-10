@@ -27,15 +27,13 @@ function createPromise(e) {
     .then((delay) => {
       iziToast.success({
         title: 'Success',
-        message: `✅ Fulfilled promise in ${delay}ms`,
-        position: position,
+        message: `✅ Fulfilled promise in ${delay}ms`        
       });
     })
     .catch((delay) => {
       iziToast.error({
         title: 'Error',
-        message: `❌ Rejected promise in ${delay}ms`,
-        position: position,
+        message: `❌ Rejected promise in ${delay}ms`
       });
     });
     form.reset();

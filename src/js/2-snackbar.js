@@ -22,7 +22,7 @@ function createPromise(e) {
       } else {
         reject(delayValue);
       }
-    }, Number(delayValue));
+    }, delayValue);
   })
     .then((delay) => {
       iziToast.success({

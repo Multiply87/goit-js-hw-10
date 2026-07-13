@@ -76,8 +76,7 @@ function startCountdown() {
       document.querySelector('[data-days]').textContent = '00';
       document.querySelector('[data-hours]').textContent = '00';
       document.querySelector('[data-minutes]').textContent = '00';
-      document.querySelector('[data-seconds]').textContent = '00';
-      document.querySelector('[data-start]').disabled = false;
+      document.querySelector('[data-seconds]').textContent = '00';      
       document.querySelector('#datetime-picker').disabled = false;
       return;
     } else {

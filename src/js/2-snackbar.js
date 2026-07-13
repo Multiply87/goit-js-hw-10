@@ -30,17 +30,17 @@ function createPromise(e) {
       }
     }, Number(delayValue));
   })
-    .then(({ position, message }) => {
+    .then((delay) => {
       iziToast.success({
         title: 'Success',
-        message: message,
+        message: `✅ "Fulfilled promise in ${delay}ms`,
         position: position,
       });
     })
-    .catch(({ position, message }) => {
+    .catch((delay) => {
       iziToast.error({
         title: 'Error',
-        message: message,
+        message: `❌ "Rejected promise in ${delay}ms`,
         position: position,
       });
     });

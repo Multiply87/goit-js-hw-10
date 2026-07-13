@@ -11,6 +11,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 let selectedDate = null;
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('[data-start]').disabled = true;
   const options = {
     enableTime: true,
     time_24hr: true,

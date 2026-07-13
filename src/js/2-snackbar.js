@@ -18,29 +18,23 @@ function createPromise(e) {
   new Promise((resolve, reject) => {
     setTimeout(() => {      
       if (stateValue === 'fulfilled') {
-        resolve({
-          position: 'topRight',
-          message: `Fulfilled after ${delayValue}ms`,
-        });
+        resolve(delayValue);
       } else {
-        reject({
-          position: 'topRight',
-          message: `Rejected after ${delayValue}ms`,
-        });
+        reject(delayValue);
       }
     }, Number(delayValue));
   })
     .then((delay) => {
       iziToast.success({
         title: 'Success',
-        message: `✅ "Fulfilled promise in ${delay}ms`,
+        message: `✅ Fulfilled promise in ${delay}ms`,
         position: position,
       });
     })
     .catch((delay) => {
       iziToast.error({
         title: 'Error',
-        message: `❌ "Rejected promise in ${delay}ms`,
+        message: `❌ Rejected promise in ${delay}ms`,
         position: position,
       });
     });

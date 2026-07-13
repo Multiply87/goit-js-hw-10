@@ -1,0 +1,48 @@
+// Описаний у документації
+import iziToast from 'izitoast';
+// Додатковий імпорт стилів
+import 'izitoast/dist/css/iziToast.min.css';
+
+document.addEventListener('DOMContentLoaded', () => {
+  const showSnackbarButton = document.querySelector('#snackbar-form');
+  showSnackbarButton.addEventListener('submit', createPromise);
+});
+
+function createPromise(e) {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const { delay, state } = form.elements;  
+  const delayValue = Number(delay.value);
+  const stateValue = state.value;
+  new Promise((resolve, reject) => {
+    setTimeout(() => {      
+      if (stateValue === 'fulfilled') {
+        resolve({
+          position: 'topRight',
+          message: `Fulfilled after ${delayValue}ms`,
+        });
+      } else {
+        reject({
+          position: 'topRight',
+          message: `Rejected after ${delayValue}ms`,
+        });
+      }
+    }, Number(delayValue));
+  })
+    .then(({ position, message }) => {
+      iziToast.success({
+        title: 'Success',
+        message: message,
+        position: position,
+      });
+    })
+    .catch(({ position, message }) => {
+      iziToast.error({
+        title: 'Error',
+        message: message,
+        position: position,
+      });
+    });
+    form.reset();
+}
